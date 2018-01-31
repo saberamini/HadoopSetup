@@ -115,7 +115,7 @@ Now try to ssh to HadoopNode
 Can also use localhost which is the same in this case
 > ssh localhost
 
-# # # Install and Configure Hadoop on a Single Node Cluster
+### Install and Configure Hadoop on a Single Node Cluster
 As mentioned in lectures, Hadoop has a very aggressive release cycle.  Generally it is preferrable to chooose a release that is stable
 All the information regarding releases can be found at http://hadoop.apache.org/
 
