@@ -68,7 +68,7 @@ You should see your prompt changing to hduser@HadoopNode
 Reboot your machine again
 > sudo reboot
 
-# # Install Passwordless SSH and RSYNC
+## Install Passwordless SSH and RSYNC
 
 <b>Secure Shell (SSH)</b> is a cryptographic network protocol for operating network services securely over an unsecured network. The best known example application is for remote login to computer systems by users.
 
@@ -115,8 +115,9 @@ Now try to ssh to HadoopNode
 Can also use localhost which is the same in this case
 > ssh localhost
 
-### Install and Configure Hadoop on a Single Node Cluster
-As mentioned in lectures, Hadoop has a very aggressive release cycle.  Generally it is preferrable to chooose a release that is stable
+## Install and Configure Hadoop on a Single Node Cluster
+
+Hadoop has a very aggressive release cycle.  Generally it is preferrable to chooose a release that is stable
 All the information regarding releases can be found at http://hadoop.apache.org/
 
 Use the following link to find an appropriate distribution: http://apache.forsale.plus/hadoop/common
