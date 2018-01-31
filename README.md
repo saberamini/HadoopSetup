@@ -115,6 +115,13 @@ Now try to ssh to HadoopNode
 Can also use localhost which is the same in this case
 > ssh localhost
 
+We have made a lot of change, so better to reboot to allow these changes to take effect.
+> sudo reboot
+
+Let's install Rsync (probably already done)
+
+>sudo apt-get install rsync
+
 ## Install and Configure Hadoop on a Single Node Cluster
 
 Hadoop has a very aggressive release cycle.  Generally it is preferrable to chooose a release that is stable
@@ -124,8 +131,5 @@ Use the following link to find an appropriate distribution: http://apache.forsal
 
 We will use version 2.9 which is the most stable release so far.
 
-
-We have made a lot of change, so better to reboot to allow these changes to take effect.
-
-Let's install Rsync (probably already done)
-sudo apt-get install rsync
+Download version 2.9
+> wget http://apache.forsale.plus/hadoop
