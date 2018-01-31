@@ -75,4 +75,44 @@ Reboot your machine again
 <b>rsync</b> is a utility for efficiently transferring and synchronizing files across computer systems, by checking the timestamp and size of files. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding, and is used for minimizing network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security.
 
 First install the ssh server
-> 
+> sudo apt-get install openssh-server
+
+Next we will generate an RSA key
+ssh-keygen -f ~/.ssh/id_rsa -t rsa -P ""
+
+You should get something like this
+
+Generating public/private rsa key pair.
+Created directory '/home/hduser/.ssh'.
+Your identification has been saved in /home/hduser/.ssh/id_rsa.
+Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:xUWPIP8dcBTFrCHmMATzP410zkt1yOO0zJ3bKfl7tYg hduser@ubuntu
+The key's randomart image is:
++---[RSA 2048]----+
+|        +oo.+.+=.|
+|         *ooo*..o|
+|          ==o.Ooo|
+|         . +.%.*o|
+|        S   = @..|
+|             o..=|
+|            .ooo+|
+|           E .o..|
+|               oo|
++----[SHA256]-----+
+
+In your file manager, you should now see a .ssh folder (Press cntrl-h to make hidden filles visible)
+
+
+Copy the RSA Security to .SSH Folder
+> ssh-copy-id -i hduser@HadoopNode
+
+We basically have added hduser as a user which can log remotely through SSH
+
+Now try to ssh to HadoopNode
+> ssh HadoopNode
+
+Can also use localhost which is the same in this case
+> ssh localhost
+
+We have made a lot of change, so better to reboot to allow these changes to take effect.
