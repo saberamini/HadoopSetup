@@ -1,5 +1,5 @@
 ## Setting up a Virtual Machine
-Greetings!
+
 1. Download the Oracle VM VirtualBox Manager from https://www.virtualbox.org/
 2. Download Ubuntu Desktop: https://www.ubuntu.com/download/desktop
 
