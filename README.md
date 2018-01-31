@@ -13,4 +13,5 @@ Now we will change the our bash file so some settings are automatically set when
 
 A text editor pops up.  At the end of the editor type the following:
 > export JAVA_HOME /usr/lib/jvm/default-java
+
 > PATH=$PATH:$JAVA_HOME/bin
