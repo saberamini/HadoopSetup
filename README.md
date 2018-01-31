@@ -132,4 +132,11 @@ Use the following link to find an appropriate distribution: http://apache.forsal
 We will use version 2.9 which is the most stable release so far.
 
 Download version 2.9
-> wget http://apache.forsale.plus/hadoop
+> wget http://apache.forsale.plus/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz -P ~/Downloads/Hadoop
+
+Uncompress the Hadoop tar file into the /usr/local folder
+> sudo tar zxvf ~/Download/Hadoop/hadoop-*.tar.gz -C /usr/local
+
+Move all Hadoop relatd file from /usr/local to /usr/local/hadoop
+>sudo mv /usr/local/hadoop-* /usr/local/hadoop
+
