@@ -14,9 +14,9 @@
 - For keyboard layout choose English (US) - English (US) and press Continue
 - Call computer name "HadoopNode"
 - Choose a username and password (remember your password!).
-- Choose "Log in automatically"
+- Do <b>not</b> choose "Log in automatically"
 - Once installation completes, click "Restart now"
-- Press any key on the prompt to remove the installation key
+- Press any key on the prompt to "Remove the installation key and press Enter"
 
 6. After install reboot.
 
@@ -49,3 +49,23 @@ Check to make sure you have a Java Home variable
 
 ## Adding a Hadoop User and Group
 
+Add a group called hadoop
+>sudo addgroup hadoop
+Add a user within this group called hduser
+>sudo adduser --ingroup hadoop hduser
+Choose a password for this user ("user")
+Leave rest of information empty (just press enter)
+
+Add hduser to the sudo group 
+> sudo adduser hduser sudo
+
+Check to make sure this user has been added. Switch users using "su" command
+> su hduser
+Enter the password you created for this user
+
+You should see your prompt changing to hduser@HadoopNode 
+
+Reboot your machine again
+> sudo reboot
+
+##Install Passwordless SSH and RSYNC
