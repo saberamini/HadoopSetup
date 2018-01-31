@@ -68,7 +68,8 @@ You should see your prompt changing to hduser@HadoopNode
 Reboot your machine again
 > sudo reboot
 
-##Install Passwordless SSH and RSYNC
+# # Install Passwordless SSH and RSYNC
+
 <b>Secure Shell (SSH)</b> is a cryptographic network protocol for operating network services securely over an unsecured network. The best known example application is for remote login to computer systems by users.
 
 <b>rsync</b> is a utility for efficiently transferring and synchronizing files across computer systems, by checking the timestamp and size of files. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding, and is used for minimizing network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security.
