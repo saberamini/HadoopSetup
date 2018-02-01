@@ -1,13 +1,13 @@
 ## Setting up a Virtual Machine
 
-1. Download the Oracle VM VirtualBox Manager from https://www.virtualbox.org/
-2. Download Ubuntu Desktop: https://www.ubuntu.com/download/desktop
+Download the Oracle VM VirtualBox Manager from https://www.virtualbox.org/
+Download Ubuntu Desktop: https://www.ubuntu.com/download/desktop
 
-3. In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely)
+In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely)
 
-4. Go through the settings, choose 25 GB for hard drive if you have it, 8G for memory (if you have it)
+Go through the settings, choose 25 GB for hard drive if you have it, 8G for memory (if you have it)
 
-5. Choose to Install Ubuntu <b>not</b> Try Ubuntu
+Choose to Install Ubuntu <b>not</b> Try Ubuntu
 - Choose "Download Updates while Installing Ubuntu" and click Continue 
 - Next screen choose "Erase disk and install Ubuntu" and click Install Now and Continue on warning window.
 - Choose location 
@@ -18,13 +18,13 @@
 - Once installation completes, click "Restart now"
 - Press any key on the prompt to "Remove the installation key and press Enter"
 
-6. After install reboot.
+After install reboot.
 
-7. Update your Ubuntu
+Update your Ubuntu
 
 > sudo apt-get update
 
-8. Install Java Development Kit 
+Install Java Development Kit 
 
 > sudo apt-get install default-jdk
 
@@ -134,10 +134,19 @@ We will use version 2.9 which is the most stable release so far.
 Download version 2.9
 > wget http://apache.forsale.plus/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz -P ~/Downloads/Hadoop
 
-Uncompress the Hadoop tar file into the /usr/local folder
-> sudo tar zxvf ~/Download/Hadoop/hadoop-*.tar.gz -C /usr/local
+Depending on your internet connection speed, this might take several minutes.
 
-Move all Hadoop relatd file from /usr/local to /usr/local/hadoop
+Uncompress the Hadoop tar file into the /usr/local folder
+
+> sudo tar zxvf ~/Downloads/Hadoop/hadoop-*.tar.gz -C /usr/local
+
+Rename the folder hadoop-2.9 to just hadoop (just for esthetics)
 >sudo mv /usr/local/hadoop-* /usr/local/hadoop
 
+## Setting Environment Variables
 
+Now once again we need to modify our .bashrc file
+
+> gedit .bashrc
+
+In the file that opens
