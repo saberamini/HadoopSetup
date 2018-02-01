@@ -250,6 +250,7 @@ Add the following lines to the configuration section of the core-site.xml file
     <description> localhost may be replaced with a DNS that points to the NameNode. </description>
 
   </property>
+</configuration>
 ```
 
 All this is doing is telling Hadoop where things are found.
@@ -333,7 +334,7 @@ Edit the file as follows:
     <name>dfs.datanode.data.dir</name>
     <value>file:///home/hduser/hadoop_data/hdfs/datanode</value>
   </property>
-  <property>
+ </configuration>
 ```
 
 Final instructions to come by Friday.
