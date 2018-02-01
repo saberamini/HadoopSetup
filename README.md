@@ -50,13 +50,18 @@ Check to make sure you have a Java Home variable
 ## Adding a Hadoop User and Group
 
 Add a group called hadoop
+
 >sudo addgroup hadoop
+
 Add a user within this group called hduser
+
 >sudo adduser --ingroup hadoop hduser
+
 Choose a password for this user ("user")
 Leave rest of information empty (just press enter)
 
 Add hduser to the sudo group 
+
 > sudo adduser hduser sudo
 
 Check to make sure this user has been added. Switch users using "su" command
