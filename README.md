@@ -95,19 +95,15 @@ Next we will generate an RSA key
 
 You should get something like this
 
+```
 Generating public/private rsa key pair.
-
 Created directory '/home/hduser/.ssh'.
-
 Your identification has been saved in /home/hduser/.ssh/id_rsa.
-
 Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
-
 The key fingerprint is:
-
 SHA256:xUWPIP8dcBTFrCHmMATzP410zkt1yOO0zJ3bKfl7tYg hduser@ubuntu
 The key's randomart image is:
-```
+
 +---[RSA 2048]----+
 |        +oo.+.+=.|
 |         *ooo*..o|
