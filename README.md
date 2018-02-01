@@ -174,7 +174,7 @@ Now once again we need to modify our .bashrc file
 
 In the file that opens, at the very end type the following:
 
-> export HADOOP_HOME=/sur/local/hadoop
+> export HADOOP_HOME=/usr/local/hadoop
 
 > export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 
