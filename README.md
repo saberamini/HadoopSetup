@@ -77,7 +77,12 @@ Enter the password you created for this user
 You should see your prompt changing to hduser@HadoopNode 
 
 Reboot your machine again
+
 > sudo reboot
+
+# # # Your login should be hduser.  If it your username, after logging in switch to hduser!
+
+> su hduser
 
 ## Install Passwordless SSH and RSYNC
 
