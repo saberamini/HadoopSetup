@@ -187,6 +187,7 @@ Almost there but first we have to create some hadoop data directories for the hd
 > mkdir -p $HADOOP_DATA_HOME /tmp
 
 ## Hadoop Configuration Files
+
 MOdify permissions on the HADOOP_CONF_DIR to allow you to edit the configuration files.
 
 > sudo chown root -R $HADOOP_HOME
@@ -212,27 +213,29 @@ Next modify $HADOOP_CONF_DIR/core-site.xml.  Use this command to open up the xml
 > sudo gedit $HADOOP_CONF_DIR/core-site.xml
 
 Add the following lines to the configuration section of the core-site.xml file
-> "<configuration>
+<pre>
+ <configuration>
   
->  <property>
+  <property>
   
->    <name>hadoop.tmp.dir</name>
+    <name>hadoop.tmp.dir</name>
 
->    <value>/home/$(user.name)/hadoop_data/hdfs/tmp/</value>
+    <value>/home/$(user.name)/hadoop_data/hdfs/tmp/</value>
 
->    <description> A base for other temporary directories. </description>
+    <description> A base for other temporary directories. </description>
 
->  </property>
+  </property>
 
->  <property>
+  <property>
   
->    <name>fs.defaultFS</name>
+    <name>fs.defaultFS</name>
 
->    <value>hdfs://localhost:9000</value>
+    <value>hdfs://localhost:9000</value>
 
->    <description> localhost may be replaced with a DNS that points to the NameNode. </description>
+    <description> localhost may be replaced with a DNS that points to the NameNode. </description>
 
->  </property>"
+  </property>
+</pre>
 
 All this is doing is telling Hadoop where things are found.
 
@@ -242,6 +245,7 @@ Now modify $HADOOP_CONF_DIR/yarn-site.xml
 
 Add the following lines to the configuration section of the yarn-site.xml file.
 
+<pre>
 <configuration>
   <property>
     <name>yarn.nodemanager.aux-services</name>
@@ -256,6 +260,7 @@ Add the following lines to the configuration section of the yarn-site.xml file.
 <value>org.apache.hadoop.mapred.ShuffleHandler</value>
 </property>-->
   </configuration>
+</pre>
 
 Some of these things you don't need but keep it for now.
 
