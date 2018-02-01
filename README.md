@@ -117,17 +117,21 @@ In your file manager, you should now see a .ssh folder (Press cntrl-h to make hi
 
 
 Copy the RSA Security to .SSH Folder
+
 > ssh-copy-id -i hduser@HadoopNode
 
 We basically have added hduser as a user which can log remotely through SSH
 
 Now try to ssh to HadoopNode
+
 > ssh HadoopNode
 
 Can also use localhost which is the same in this case
+
 > ssh localhost
 
 We have made a lot of change, so better to reboot to allow these changes to take effect.
+
 > sudo reboot
 
 Let's install Rsync (probably already done)
@@ -144,6 +148,7 @@ Use the following link to find an appropriate distribution: http://apache.forsal
 We will use version 2.9 which is the most stable release so far.
 
 Download version 2.9
+
 > wget http://apache.forsale.plus/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz -P ~/Downloads/Hadoop
 
 Depending on your internet connection speed, this might take several minutes.
@@ -153,6 +158,7 @@ Uncompress the Hadoop tar file into the /usr/local folder
 > sudo tar zxvf ~/Downloads/Hadoop/hadoop-*.tar.gz -C /usr/local
 
 Rename the folder hadoop-2.9 to just hadoop (just for esthetics)
+
 >sudo mv /usr/local/hadoop-* /usr/local/hadoop
 
 ## Setting Environment Variables
@@ -268,7 +274,7 @@ Add the following lines to the configuration section of the yarn-site.xml file.
 <value>org.apache.hadoop.mapred.ShuffleHandler</value>
 </property>-->
   </configuration>
-</pre>
+
 
 Some of these things you don't need but keep it for now.
 
@@ -287,6 +293,7 @@ Open the file
 
 Edit the file as follows:
 
+```
 <configuration>
   <property>
     <name>mapreduce.jobtracker.address</name>
@@ -298,7 +305,7 @@ Edit the file as follows:
   <value>yarn</value>
   </property>
 </configuration>
-
+```
 
 Modify $HADOOP_CONF_DIR/hdfs-site.xml
 
@@ -306,6 +313,7 @@ Modify $HADOOP_CONF_DIR/hdfs-site.xml
 
 Edit the file as follows:
 
+```
 <configuration>
   <property>
     <name>dfs.replication</name>
