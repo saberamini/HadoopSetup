@@ -8,6 +8,7 @@ In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely)
 Go through the settings, choose 25 GB for hard drive if you have it, 8G for memory (if you have it)
 
 Choose to Install Ubuntu <b>not</b> Try Ubuntu
+
 - Choose "Download Updates while Installing Ubuntu" and click Continue 
 - Next screen choose "Erase disk and install Ubuntu" and click Install Now and Continue on warning window.
 - Choose location 
@@ -90,17 +91,23 @@ First install the ssh server
 
 Next we will generate an RSA key
 
-ssh-keygen -f ~/.ssh/id_rsa -t rsa -P ""
+> ssh-keygen -f ~/.ssh/id_rsa -t rsa -P ""
 
 You should get something like this
 
 Generating public/private rsa key pair.
+
 Created directory '/home/hduser/.ssh'.
+
 Your identification has been saved in /home/hduser/.ssh/id_rsa.
+
 Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
+
 The key fingerprint is:
+
 SHA256:xUWPIP8dcBTFrCHmMATzP410zkt1yOO0zJ3bKfl7tYg hduser@ubuntu
 The key's randomart image is:
+```
 +---[RSA 2048]----+
 |        +oo.+.+=.|
 |         *ooo*..o|
@@ -112,7 +119,7 @@ The key's randomart image is:
 |           E .o..|
 |               oo|
 +----[SHA256]-----+
-
+```
 In your file manager, you should now see a .ssh folder (Press cntrl-h to make hidden filles visible)
 
 
