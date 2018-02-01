@@ -33,11 +33,13 @@ Now we will change the our bash file so the Java settings are automatically set 
 > sudo gedit /etc/bash.bashrc
 
 A text editor pops up.  At the end of the editor type the following:
+
 > export JAVA_HOME=/usr/lib/jvm/default-java
 
 > PATH=$PATH:$JAVA_HOME/bin
 
 Reboot the system
+
 > sudo reboot
 
 Check to make sure Java is installed:
@@ -45,6 +47,7 @@ Check to make sure Java is installed:
 > java -version
 
 Check to make sure you have a Java Home variable
+
 >echo $JAVA_HOME
 
 ## Adding a Hadoop User and Group
@@ -65,7 +68,9 @@ Add hduser to the sudo group
 > sudo adduser hduser sudo
 
 Check to make sure this user has been added. Switch users using "su" command
+
 > su hduser
+
 Enter the password you created for this user
 
 You should see your prompt changing to hduser@HadoopNode 
@@ -80,9 +85,11 @@ Reboot your machine again
 <b>rsync</b> is a utility for efficiently transferring and synchronizing files across computer systems, by checking the timestamp and size of files. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding, and is used for minimizing network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security.
 
 First install the ssh server
+
 > sudo apt-get install openssh-server
 
 Next we will generate an RSA key
+
 ssh-keygen -f ~/.ssh/id_rsa -t rsa -P ""
 
 You should get something like this
