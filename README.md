@@ -229,3 +229,8 @@ Add the following lines to the configuration section of the core-site.xml file
 
 >  </property>
 
+All this is doing is telling Hadoop where things are found.
+
+Now modify $HADOOP_CONF_DIR/yarn-site.xml
+
+> sudo gedit $HADOOP_CONF_DIR/yarn-site.xml
