@@ -147,7 +147,7 @@ Rename the folder hadoop-2.9 to just hadoop (just for esthetics)
 
 Now once again we need to modify our .bashrc file
 
-> gedit .bashrc
+> gedit ~/.bashrc
 
 In the file that opens, at the very end type the following:
 
@@ -159,4 +159,62 @@ In the file that opens, at the very end type the following:
 
 > PATH = $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
+Now to have to these changes take into effect, we need to reboot our machine (as we did previously).  However, another way to manually run the script in .bashrc
 
+> source ~/.bashrc
+
+Generally, however, to be safe, you are better off just rebooting your machine
+
+> sudo reboot
+
+For a sanity check, see if the environment variables have actually been updated
+
+> echo $HADOOP_HOME
+
+## Build the Hadoop data Directories
+
+Almost there but first we have to create some hadoop data directories for the hduser.
+
+> mkdir -p $HADOOP_DATA_HOME /namenode
+
+> mkdir -p $HADOOP_DATA_HOME /datanode
+
+> mkdir -p $HADOOP_DATA_HOME /tmp
+
+## Hadoop Configuration Files
+MOdify permissions on the HADOOP_CONF_DIR to allow you to edit the configuration files.
+
+> sudo chown root -R $HADOOP_HOME
+
+Set the read/write permissions (Wide open for now).
+
+> sudo chmod 777 -R $HADOOP_HOME
+
+Add JAVA_HOME variable to $HADOOP_CONF_DIR/hadoop-env.sh
+
+> sudo gedit $HADOOP_CONF_DIR/hadoop-env.sh
+
+Locate the area in the file that indicates the current JAVA_HOME variable, it should look like:
+
+> export JAVA_HOME=$(JAVA_HOME)
+
+Change it to
+
+> export JAVA_HOME=/usr/lib/jvm/default-java
+
+Next modify $HADOOP_CONF_DIR/core-site.xml.  Use this command to open up the xml file
+
+> sudo gedit $HADOOP_CONF_DIR/core-site.xml
+
+Add the following lines to the configuration section of the core-site.xml file
+> <configuration>
+>  <property>
+>    <name>hadoop.tmp.dir</name>
+>    <value>/home/$(user.name)/hadoop_data/hdfs/tmp/</value>
+>    <description> A base for other temporary directories. </description>
+>  </property>
+>  <property>
+>    <name>fs.defaultFS</name>
+>    <value>hdfs://localhost:9000</value>
+>    <description> localhost may be replaced with a DNS that points to the NameNode. </description>
+>  </property>
