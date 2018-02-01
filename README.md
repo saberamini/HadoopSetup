@@ -140,3 +140,4 @@ Uncompress the Hadoop tar file into the /usr/local folder
 Move all Hadoop relatd file from /usr/local to /usr/local/hadoop
 >sudo mv /usr/local/hadoop-* /usr/local/hadoop
 
+
