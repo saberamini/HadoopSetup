@@ -234,3 +234,76 @@ All this is doing is telling Hadoop where things are found.
 Now modify $HADOOP_CONF_DIR/yarn-site.xml
 
 > sudo gedit $HADOOP_CONF_DIR/yarn-site.xml
+
+Add the following lines to the configuration section of the yarn-site.xml file.
+
+<configuration>
+  <property>
+    <name>yarn.nodemanager.aux-services</name>
+    <value>mapreduce_shuffle</value>
+  </property>
+  <property>
+    <name> mapred.job.tracker</name>
+    <value> localhost:9001</value>
+  </property>
+  <!--property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>-->
+  </configuration>
+
+Some of these things you don't need but keep it for now.
+
+Modify $HADOOP_CONF_DIR/mapred-site.xml
+Copy the mapred-site.xml template and rename the new file mapred-site.xml
+
+> sudo cp $HADOOP_CONF_DIR/mapred-site.xml.template $HADOOP_CONF_DIR/mapred-site.xml
+
+Change permissions
+
+> sudo chmod 777 $HADOOP_CONF_DIR/mapred-site.xml
+
+Open the file
+
+> sudo gedit $HADOOP_CONF_DIR/mapred-site.xml
+
+Edit the file as follows:
+
+<configuration>
+  <property>
+    <name>mapreduce.jobtracker.address</name>
+    <value>local</value>
+  </property>
+  
+  <property>
+  <name>mapreduce.framework.name</name>
+  <value>yarn</value>
+  </property>
+</configuration>
+
+
+Modify $HADOOP_CONF_DIR/hdfs-site.xml
+
+> sudo gedit $HADOOP_CONF_DIR/hdfs-site.xml
+
+Edit the file as follows:
+
+<configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+    <description> Default block replication.
+      The actual number of replications can be specified when the file is created.
+      The default is used if replication is not specified in create time.
+    </description>
+  </property>
+  <property>
+    <name>dfs.namenode.name.dir</name>
+    <value>file:///home/hduser/hadoop_data/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.datanode.data.dir</name>
+    <value>file:///home/hduser/hadoop_data/hdfs/datanode</value>
+  </property>
+  <property>
+    
