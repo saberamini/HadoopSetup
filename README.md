@@ -120,8 +120,6 @@ The key's randomart image is:
 |               oo|
 +----[SHA256]-----+
 ```
-In your file manager, you should now see a .ssh folder (Press cntrl-h to make hidden filles visible)
-
 
 Copy the RSA Security to .SSH Folder
 
@@ -182,7 +180,7 @@ In the file that opens, at the very end type the following:
 
 > export HADOOP_DATA_HOME=/home/$USER/hadoop_data/hdfs
 
-> PATH = $PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+> PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 
 Now to have to these changes take into effect, we need to reboot our machine (as we did previously).  However, another way to manually run the script in .bashrc
 
@@ -200,11 +198,11 @@ For a sanity check, see if the environment variables have actually been updated
 
 Almost there but first we have to create some hadoop data directories for the hduser.
 
-> mkdir -p $HADOOP_DATA_HOME /namenode
+> mkdir -p $HADOOP_DATA_HOME/namenode
 
-> mkdir -p $HADOOP_DATA_HOME /datanode
+> mkdir -p $HADOOP_DATA_HOME/datanode
 
-> mkdir -p $HADOOP_DATA_HOME /tmp
+> mkdir -p $HADOOP_DATA_HOME/tmp
 
 ## Hadoop Configuration Files
 
@@ -266,7 +264,7 @@ Now modify $HADOOP_CONF_DIR/yarn-site.xml
 
 Add the following lines to the configuration section of the yarn-site.xml file.
 
-<pre>
+```
 <configuration>
   <property>
     <name>yarn.nodemanager.aux-services</name>
@@ -277,15 +275,16 @@ Add the following lines to the configuration section of the yarn-site.xml file.
     <value> localhost:9001</value>
   </property>
   <!--property>
-<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-<value>org.apache.hadoop.mapred.ShuffleHandler</value>
-</property>-->
-  </configuration>
-
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+  </property>-->
+</configuration>
+```
 
 Some of these things you don't need but keep it for now.
 
 Modify $HADOOP_CONF_DIR/mapred-site.xml
+
 Copy the mapred-site.xml template and rename the new file mapred-site.xml
 
 > sudo cp $HADOOP_CONF_DIR/mapred-site.xml.template $HADOOP_CONF_DIR/mapred-site.xml
@@ -339,4 +338,6 @@ Edit the file as follows:
     <value>file:///home/hduser/hadoop_data/hdfs/datanode</value>
   </property>
   <property>
-    
+```
+
+Final instructions to come by Friday.
