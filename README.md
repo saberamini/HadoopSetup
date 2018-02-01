@@ -220,7 +220,8 @@ Next modify $HADOOP_CONF_DIR/core-site.xml.  Use this command to open up the xml
 > sudo gedit $HADOOP_CONF_DIR/core-site.xml
 
 Add the following lines to the configuration section of the core-site.xml file
-<pre>
+
+```
  <configuration>
   
   <property>
@@ -242,7 +243,7 @@ Add the following lines to the configuration section of the core-site.xml file
     <description> localhost may be replaced with a DNS that points to the NameNode. </description>
 
   </property>
-</pre>
+```
 
 All this is doing is telling Hadoop where things are found.
 
