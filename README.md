@@ -234,26 +234,16 @@ Next modify $HADOOP_CONF_DIR/core-site.xml.  Use this command to open up the xml
 Add the following lines to the configuration section of the core-site.xml file
 
 ```
- <configuration>
-  
-  <property>
-  
+ <configuration>  
+  <property>  
     <name>hadoop.tmp.dir</name>
-
     <value>/home/$(user.name)/hadoop_data/hdfs/tmp/</value>
-
     <description> A base for other temporary directories. </description>
-
   </property>
-
-  <property>
-  
+  <property>  
     <name>fs.defaultFS</name>
-
     <value>hdfs://localhost:9000</value>
-
     <description> localhost may be replaced with a DNS that points to the NameNode. </description>
-
   </property>
 </configuration>
 ```
