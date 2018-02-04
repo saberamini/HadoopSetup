@@ -339,7 +339,29 @@ Edit the file as follows:
     <name>dfs.datanode.data.dir</name>
     <value>file:///home/hduser/hadoop_data/hdfs/datanode</value>
   </property>
- </configuration>
+  <property>
+     <name>dfs.datanode.data.dir</name>
+     <value>file:///home/hduser/hadoop_data/hdfs/datanode</value>
+  </property>
+  <property>. 
+     <name>dfs.permissions.enabled</name>
+     <value>false</value>
+     <description>If "true", enable permission checking in HDF.  If "false", permission checking is turned off, but all other behaviour is unchanged.  Switching from one parameter value to the other does not change the mode, ownder or group of files or directories
+     </description>
+  </property
+</configuration>
 ```
 
 Final instructions to come by Friday.
+
+# # Return Ownership of $HADOOP_HOME folder to root
+
+We'll return the ownership back to the root on all files in $HADOOP_HOME.  We have made changes so let's just be sure:
+
+> sudo chown root -R $HADOOP_HOME
+
+# # Allow all users to have Read/Write access to your $HADOOP_HOME folder
+
+NOTE: This is NOT good pracitice in production deployment.
+
+> sudo chmod 777 -R $HADOOP_HOME
