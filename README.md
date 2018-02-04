@@ -354,14 +354,28 @@ Edit the file as follows:
 
 Final instructions to come by Friday.
 
-# # Return Ownership of $HADOOP_HOME folder to root
+Return Ownership of $HADOOP_HOME folder to root
 
 We'll return the ownership back to the root on all files in $HADOOP_HOME.  We have made changes so let's just be sure:
 
 > sudo chown root -R $HADOOP_HOME
 
-# # Allow all users to have Read/Write access to your $HADOOP_HOME folder
+Allow all users to have Read/Write access to your $HADOOP_HOME folder
 
 NOTE: This is NOT good pracitice in production deployment.
 
 > sudo chmod 777 -R $HADOOP_HOME
+
+ Format the HDFS
+
+> hdfs namenode -format
+
+Make sure there is no ERRORS during the formatting process.
+
+
+Reboot
+
+> sudo reboot
+
+# # We have now installed and formatted our Hadoop cluster!
+
