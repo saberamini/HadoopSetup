@@ -80,7 +80,7 @@ Reboot your machine again
 
 > sudo reboot
 
-# # # Your login should be hduser.  If it your username, after logging in switch to hduser!
+### Your login should be hduser.  If it your username, after logging in switch to hduser!
 
 > su hduser
 
