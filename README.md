@@ -5,7 +5,20 @@ Download Ubuntu Desktop: https://www.ubuntu.com/download/desktop
 
 In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely)
 
-Go through the settings, choose 25 GB for hard drive if you have it, 8G for memory (if you have it)
+If virtual box only detects 32 bit and you have a 64 bit machine you must fix this.  One possible solution is:
+
+- reboot your machine
+
+- get to bios settings
+
+- choose "Intel Virtualization Technologies"
+
+If you need more details see
+
+http://www.sysprobs.com/disable-enable-virtualization-technology-bios
+
+
+On the virtual box prompts, choose default values and click continue.  For space, choose 25 GB for hard drive if you have it, 8G for memory (if you have it).  You can probably get away with as low as 10 GB of hard drive and 1GB of memory.
 
 Choose to Install Ubuntu <b>not</b> Try Ubuntu
 
