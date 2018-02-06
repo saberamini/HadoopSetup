@@ -13,7 +13,7 @@ Choose to Install Ubuntu <b>not</b> Try Ubuntu
 - Next screen choose "Erase disk and install Ubuntu" and click Install Now and Continue on warning window.
 - Choose location 
 - For keyboard layout choose English (US) - English (US) and press Continue
-- Call computer name "HadoopNode"
+- Call computer name "HadoopNode". <b> You can choose a different name but remember for the following instructions you then need to use your computer name instead of "HadoopNode"</b>
 - Choose a username and password (remember your password!).
 - Do <b>not</b> choose "Log in automatically"
 - Once installation completes, click "Restart now"
@@ -55,11 +55,11 @@ Check to make sure you have a Java Home variable
 
 Add a group called hadoop
 
->sudo addgroup hadoop
+> sudo addgroup hadoop
 
 Add a user within this group called hduser
 
->sudo adduser --ingroup hadoop hduser
+> sudo adduser --ingroup hadoop hduser
 
 Choose a password for this user ("user")
 Leave rest of information empty (just press enter)
