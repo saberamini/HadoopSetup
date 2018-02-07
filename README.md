@@ -351,7 +351,7 @@ Edit the file as follows:
      <value>false</value>
      <description>If "true", enable permission checking in HDF.  If "false", permission checking is turned off, but all other behaviour is unchanged.  Switching from one parameter value to the other does not change the mode, ownder or group of files or directories
      </description>
-  </property
+  </property>
 </configuration>
 ```
 
