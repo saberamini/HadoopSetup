@@ -152,6 +152,8 @@ Can also use localhost which is the same in this case
 
 > ssh localhost
 
+Type "yes" if prompted "Are you sure you want to connect?" .
+
 We have made a lot of change, so better to reboot to allow these changes to take effect.
 
 > sudo reboot
@@ -160,7 +162,7 @@ We have made a lot of change, so better to reboot to allow these changes to take
 
 > su hduser
 
-Let's install Rsync (probably already done)
+Let's install Rsync (probably already done but to make sure)
 
 >sudo apt-get install rsync
 
