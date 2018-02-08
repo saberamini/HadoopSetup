@@ -87,7 +87,7 @@ Check to make sure this user has been added. Switch users using "su" command
 
 Enter the password you created for this user
 
-You should see your prompt changing to hduser@HadoopNode 
+You should see your prompt changing to hduser@HadoopNode (or whatever your machine name is called)
 
 Reboot your machine again
 
@@ -137,14 +137,17 @@ The key's randomart image is:
 
 Copy the RSA Security to .SSH Folder
 
-> ssh-copy-id -i hduser@HadoopNode
+> ssh-copy-id -i hduser@[computername]
+
+where [computername] is the name you chose for your machine (without [ ] - it is name that appears after the @ sign)
 
 We basically have added hduser as a user which can log remotely through SSH
 
-Now try to ssh to HadoopNode
+Now try to ssh to your computer
 
-> ssh HadoopNode
+> ssh [computername]
 
+where [computername] is the name you gave your machine (without [ ] - it is the name that appears after the @ sign)
 Can also use localhost which is the same in this case
 
 > ssh localhost
