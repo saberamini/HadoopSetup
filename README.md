@@ -153,6 +153,10 @@ We have made a lot of change, so better to reboot to allow these changes to take
 
 > sudo reboot
 
+## Again make sure to login as hduser
+
+> su hduser
+
 Let's install Rsync (probably already done)
 
 >sudo apt-get install rsync
