@@ -155,7 +155,7 @@ Reboot your machine again
 
 Your terminal should look like this:
 
-<img src="Loginscreen.jpg" alt="Mountain View">
+<img src="Loginscreen.jpg" alt="Ubuntu login as hduser">
 
 ## Install Passwordless SSH and RSYNC
 
