@@ -301,7 +301,9 @@ We have made a lot of change, so better to reboot to allow these changes to take
 
 > sudo reboot
 
-## Again make sure to login as hduser
+## Again make sure to login as hduser by choosing hduser at the log-in screen.
+
+If you log-in with your own username, just change to hduser using the "su" command.
 
 > su hduser
 
@@ -311,18 +313,30 @@ Let's install Rsync (probably already done but to make sure)
 
 ## Install and Configure Hadoop on a Single Node Cluster
 
-Hadoop has a very aggressive release cycle.  Generally it is preferrable to chooose a release that is stable
+Hadoop has a very aggressive release cycle.  Generally it is preferrable to choose a release that is not the latest because it may have bugs or other problems associated with it that will be fixed overtime. 
 All the information regarding releases can be found at http://hadoop.apache.org/
 
-Use the following link to find an appropriate distribution: http://apache.forsale.plus/hadoop/common
+You can use the following link to find an appropriate distribution: http://apache.forsale.plus/hadoop/common
 
-We will use version 2.9 which is the most stable release so far.
+At the time of writing this tutorial, Hadoop version 3.0 had just come out but we will use version 2.9 which has been more rigorously tested and fine turned (So hopefully we will not run into any unexpected problems).
 
-Download version 2.9
+Download version 2.9 using the following command:
 
 > wget http://apache.forsale.plus/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz -P ~/Downloads/Hadoop
 
 Depending on your internet connection speed, this might take several minutes.
+```
+--2018-02-19 12:51:08--  http://apache.forsale.plus/hadoop/common/hadoop-2.9.0/hadoop-2.9.0.tar.gz
+Resolving apache.forsale.plus (apache.forsale.plus)... 158.69.246.173
+Connecting to apache.forsale.plus (apache.forsale.plus)|158.69.246.173|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 366744329 (350M) [application/x-gzip]
+Saving to: ‘/home/hduser/Downloads/Hadoop/hadoop-2.9.0.tar.gz’
+
+hadoop-2.9.0.tar.gz 100%[===================>] 349.75M  1.35MB/s    in 3m 48s  
+
+2018-02-19 12:54:56 (1.53 MB/s) - ‘/home/hduser/Downloads/Hadoop/hadoop-2.9.0.tar.gz’ saved [366744329/366744329]
+```
 
 Uncompress the Hadoop tar file into the /usr/local folder
 
@@ -330,29 +344,30 @@ Uncompress the Hadoop tar file into the /usr/local folder
 
 Rename the folder hadoop-2.9 to just hadoop (just for esthetics)
 
->sudo mv /usr/local/hadoop-* /usr/local/hadoop
+> sudo mv /usr/local/hadoop-* /usr/local/hadoop
 
 ## Setting Environment Variables
 
 Now once again we need to modify our .bashrc file
 
-> gedit ~/.bashrc
+> sudo gedit ~/.bashrc
+
+Do not worry about any warnings that may come up on the terminal.  
 
 In the file that opens, at the very end type the following:
 
-> export HADOOP_HOME=/usr/local/hadoop
-
-> export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
-
-> export HADOOP_DATA_HOME=/home/$USER/hadoop_data/hdfs
-
-> PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+```
+export HADOOP_HOME=/usr/local/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export HADOOP_DATA_HOME=/home/$USER/hadoop_data/hdfs
+PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+```
 
 Now to have to these changes take into effect, we need to reboot our machine (as we did previously).  However, another way to manually run the script in .bashrc
 
 > source ~/.bashrc
 
-Generally, however, to be safe, you are better off just rebooting your machine
+Generally, however, to be safe, you are better off just rebooting your machine (to be technical, there may be dependencies that are not sourced by just using the above).
 
 > sudo reboot
 
