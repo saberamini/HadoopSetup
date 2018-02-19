@@ -81,6 +81,14 @@ Check to make sure you have a Java Home variable
 
 >echo $JAVA_HOME
 
+You should see the path you set in your bashrc file:
+
+```
+/usr/lib/jvm/default-java
+```
+
+We are now ready to move on to adding a Hadoop user and group.
+
 ## Adding a Hadoop User and Group
 
 Add a group called hadoop
@@ -91,20 +99,51 @@ Add a user within this group called hduser
 
 > sudo adduser --ingroup hadoop hduser
 
-Choose a password for this user ("user")
-Leave rest of information empty (just press enter)
+As with all linux command, you will see a log of what is happening with each command.  You should see something like this:
+```
+Adding user `hduser' ...
+Adding new user `hduser' (1001) with group `hadoop' ...
+Creating home directory `/home/hduser' ...
+Copying files from `/etc/skel' ...
+Enter new UNIX password: 
+```
 
-Add hduser to the sudo group 
+Choose a password for this user ("user")
+
+Leave rest of information empty (just press enter) as shown below:
+
+```
+passwd: password updated successfully
+Changing the user information for hduser
+Enter the new value, or press ENTER for the default
+	Full Name []: 
+	Room Number []: 
+	Work Phone []: 
+	Home Phone []: 
+	Other []: 
+Is the information correct? [Y/n] Y
+```
+Now we want to add hduser to the sudo group or the super user group. 
 
 > sudo adduser hduser sudo
 
-Check to make sure this user has been added. Switch users using "su" command
+Check to make sure this user has been added. Switch users using "su" command which stands for switch user:
 
 > su hduser
 
 Enter the password you created for this user
 
-You should see your prompt changing to hduser@HadoopNode (or whatever your machine name is called)
+You should see your prompt changing to hduser@HadoopNode (or whatever your machine name is called).
+
+Check to see what groups this user (hduser) belongs to:
+
+> groups
+
+You should see the two groups you added above (hadoop and sudo)
+
+```
+hadoop sudo
+```
 
 Reboot your machine again
 
