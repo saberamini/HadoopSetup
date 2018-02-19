@@ -153,6 +153,10 @@ Reboot your machine again
 
 > su hduser
 
+Your terminal should look like this:
+
+<img src="Loginscreen.jpg" alt="Mountain View">
+
 ## Install Passwordless SSH and RSYNC
 
 <b>Secure Shell (SSH)</b> is a cryptographic network protocol for operating network services securely over an unsecured network. The best known example application is for remote login to computer systems by users.
