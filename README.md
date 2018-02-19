@@ -455,7 +455,7 @@ Add the following lines to the configuration section of the yarn-site.xml file.
 
 Some of these things you don't need but keep it for now.
 
-Modify $HADOOP_CONF_DIR/mapred-site.xml
+We now need to create a mapred-site.xml file. 
 
 Copy the mapred-site.xml template and rename the new file mapred-site.xml
 
@@ -522,17 +522,11 @@ Edit the file as follows:
 </configuration>
 ```
 
-Final instructions to come by Friday.
-
-Return Ownership of $HADOOP_HOME folder to root
-
 We'll return the ownership back to the root on all files in $HADOOP_HOME.  We have made changes so let's just be sure:
 
 > sudo chown root -R $HADOOP_HOME
 
-Allow all users to have Read/Write access to your $HADOOP_HOME folder
-
-NOTE: This is NOT good pracitice in production deployment.
+We will also allow all users to have Read/Write access to your $HADOOP_HOME folder.  <b>NOTE: This is NOT good pracitice in production deployment.</b> 
 
 > sudo chmod 777 -R $HADOOP_HOME
 
@@ -540,11 +534,9 @@ NOTE: This is NOT good pracitice in production deployment.
 
 > hdfs namenode -format
 
-Make sure there is no ERRORS during the formatting process.
+Make sure there is no ERRORS during the formatting process.  If there is any, call over the instructor to debug your setup.
 
-
-Reboot
-
+We will do a final reboot to have all the changes take effect.
 > sudo reboot
 
-## We have now installed and formatted our Hadoop cluster!
+## We have now installed and formatted our Hadoop cluster.  Please move on to the tutorial Working with Hadoop to test your setup.
