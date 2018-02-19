@@ -1,9 +1,10 @@
 ## Setting up a Virtual Machine
 
 Download the Oracle VM VirtualBox Manager from https://www.virtualbox.org/
+
 Download Ubuntu Desktop: https://www.ubuntu.com/download/desktop
 
-In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely)
+In the Oracle VM, choose new and Ubuntu, 64 bit edition (likely) - you can search for ubuntu and the system should automatically choose 64 bit version for you.
 
 If virtual box only detects 32 bit and you have a 64 bit machine you must fix this.  One possible solution is:
 
@@ -18,7 +19,7 @@ If you need more details see
 http://www.sysprobs.com/disable-enable-virtualization-technology-bios
 
 
-On the virtual box prompts, choose default values and click continue.  For space, choose 25 GB for hard drive if you have it, 8G for memory (if you have it).  You can probably get away with as low as 10 GB of hard drive and 1GB of memory.
+On the virtual box prompts, choose default values and click continue.  For space, choose 25 GB for hard drive if you have it, 8G for memory (if you have it).  You can probably get away with as low as 10 GB of hard drive and 1 GB of memory.
 
 Choose to Install Ubuntu <b>not</b> Try Ubuntu
 
@@ -34,7 +35,7 @@ Choose to Install Ubuntu <b>not</b> Try Ubuntu
 
 After install reboot.
 
-Update your Ubuntu
+Update your Ubuntu:
 
 > sudo apt-get update
 
