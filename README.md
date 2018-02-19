@@ -35,13 +35,15 @@ Choose to Install Ubuntu <b>not</b> Try Ubuntu
 
 After install reboot.
 
-Update your Ubuntu:
+Update your Ubuntu (this may take a few minutes):
 
 > sudo apt-get update
 
-Install Java Development Kit 
+Install Java Development Kit (this may take a few minutes):
 
 > sudo apt-get install default-jdk
+
+You will get a message asking you to confirm the new installs.  Type "Y" and press enter to confirm.
 
 Now we will change the our bash file so the Java settings are automatically set on booting.
 
