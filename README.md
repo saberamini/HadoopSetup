@@ -63,7 +63,9 @@ We need to reboot the system to have above changes take effect.  You can also so
 
 > sudo reboot
 
-Check to make sure Java is installed:
+Log in with your username and password.
+
+Open a terminal and check to make sure Java is installed:
 
 > java -version
 
