@@ -69,6 +69,14 @@ Open a terminal and check to make sure Java is installed:
 
 > java -version
 
+You should see something like this:
+
+```
+openjdk version "1.8.0_03-Ubuntu"
+OpenJDK Runtime Environment (build 1.8.0_03-Ubuntu-8u77-b03-3ubuntu3-b03)
+OpenJDK 64-Bit Server VM (build 25.03-b03, mixed mode)''
+```
+
 Check to make sure you have a Java Home variable
 
 >echo $JAVA_HOME
