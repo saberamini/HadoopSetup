@@ -49,13 +49,17 @@ Now we will change the our bash file so the Java settings are automatically set 
 
 > sudo gedit /etc/bash.bashrc
 
-A text editor pops up.  At the end of the editor type the following:
+A text editor pops up.  If you see any warnings in the the terminal (where you typed the above) do not worry about them.  Generally, we do not care much about warnings in most things we do in the Linux environment.  
+
+Click on the very last line of the file (after all the text), click enter and type the following:
 
 > export JAVA_HOME=/usr/lib/jvm/default-java
 
 > PATH=$PATH:$JAVA_HOME/bin
 
-Reboot the system
+For those new to the linux-based operating systems, the above two commands set the folder path for executing java-based commands.  We will use java later on to do MapReduce tasks.  
+
+We need to reboot the system to have above changes take effect.  You can also source your bash file, but I find that this can sometime lead to problems.  To reboot the system, enter the following command:
 
 > sudo reboot
 
