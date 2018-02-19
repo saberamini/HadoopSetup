@@ -163,9 +163,72 @@ Your terminal should look like this:
 
 <b>rsync</b> is a utility for efficiently transferring and synchronizing files across computer systems, by checking the timestamp and size of files. It is commonly found on Unix-like systems and functions as both a file synchronization and file transfer program. The rsync algorithm is a type of delta encoding, and is used for minimizing network usage. Zlib may be used for additional compression, and SSH or stunnel can be used for data security.
 
+We need both of these to setup our Hadoop node.
+
 First install the ssh server
 
 > sudo apt-get install openssh-server
+
+Confirm that you want to continue.  You should see a long output similar to this.  If you get any warnings or err
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  ncurses-term openssh-client openssh-sftp-server ssh-import-id
+Suggested packages:
+  ssh-askpass libpam-ssh keychain monkeysphere rssh molly-guard
+The following NEW packages will be installed:
+  ncurses-term openssh-client openssh-server openssh-sftp-server ssh-import-id
+0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,222 kB of archives.
+After this operation, 8,927 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://ca.archive.ubuntu.com/ubuntu xenial/main amd64 openssh-client amd64 1:7.2p2-4 [586 kB]
+Get:2 http://ca.archive.ubuntu.com/ubuntu xenial/main amd64 ncurses-term all 6.0+20160213-1ubuntu1 [249 kB]
+Get:3 http://ca.archive.ubuntu.com/ubuntu xenial/main amd64 openssh-sftp-server amd64 1:7.2p2-4 [38.7 kB]
+Get:4 http://ca.archive.ubuntu.com/ubuntu xenial/main amd64 openssh-server amd64 1:7.2p2-4 [338 kB]
+Get:5 http://ca.archive.ubuntu.com/ubuntu xenial/main amd64 ssh-import-id all 5.5-0ubuntu1 [10.2 kB]
+Fetched 1,222 kB in 2s (516 kB/s)   
+Preconfiguring packages ...
+Selecting previously unselected package openssh-client.
+(Reading database ... 177004 files and directories currently installed.)
+Preparing to unpack .../openssh-client_1%3a7.2p2-4_amd64.deb ...
+Unpacking openssh-client (1:7.2p2-4) ...
+Selecting previously unselected package ncurses-term.
+Preparing to unpack .../ncurses-term_6.0+20160213-1ubuntu1_all.deb ...
+Unpacking ncurses-term (6.0+20160213-1ubuntu1) ...
+Selecting previously unselected package openssh-sftp-server.
+Preparing to unpack .../openssh-sftp-server_1%3a7.2p2-4_amd64.deb ...
+Unpacking openssh-sftp-server (1:7.2p2-4) ...
+Selecting previously unselected package openssh-server.
+Preparing to unpack .../openssh-server_1%3a7.2p2-4_amd64.deb ...
+Unpacking openssh-server (1:7.2p2-4) ...
+Selecting previously unselected package ssh-import-id.
+Preparing to unpack .../ssh-import-id_5.5-0ubuntu1_all.deb ...
+Unpacking ssh-import-id (5.5-0ubuntu1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for systemd (229-4ubuntu19) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for ufw (0.35-0ubuntu2) ...
+Setting up openssh-client (1:7.2p2-4) ...
+Setting up ncurses-term (6.0+20160213-1ubuntu1) ...
+Setting up openssh-sftp-server (1:7.2p2-4) ...
+Setting up openssh-server (1:7.2p2-4) ...
+Creating SSH2 RSA key; this may take some time ...
+2048 SHA256:sO8RnyCr500ieKjbKT9DSB0Cg9AypWxE38n0flNG7JI root@HadoopNode (RSA)
+Creating SSH2 DSA key; this may take some time ...
+1024 SHA256:IRuyXV9pa5fK9iP5lSnMPYYZPt4pfEgzluqF2rse8ls root@HadoopNode (DSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:1X9eQmEqHzjzJTrxfsfilSXh6zfuDdGjVCzJ5BPG+TI root@HadoopNode (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:IH0LXR6D8KtUnp9vvnRIMSZl3fqIC1iT+grYaawnA3M root@HadoopNode (ED25519)
+Setting up ssh-import-id (5.5-0ubuntu1) ...
+Processing triggers for systemd (229-4ubuntu19) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for ufw (0.35-0ubuntu2) ...
+```
+If you get any dependency errors,
 
 Next we will generate an RSA key
 
@@ -179,19 +242,18 @@ Created directory '/home/hduser/.ssh'.
 Your identification has been saved in /home/hduser/.ssh/id_rsa.
 Your public key has been saved in /home/hduser/.ssh/id_rsa.pub.
 The key fingerprint is:
-SHA256:xUWPIP8dcBTFrCHmMATzP410zkt1yOO0zJ3bKfl7tYg hduser@ubuntu
+SHA256:Le6t3zfoeRgzbDGbsIVkhYwQqFOkIhOmmwuunRRiQg0 hduser@HadoopNode
 The key's randomart image is:
-
 +---[RSA 2048]----+
-|        +oo.+.+=.|
-|         *ooo*..o|
-|          ==o.Ooo|
-|         . +.%.*o|
-|        S   = @..|
-|             o..=|
-|            .ooo+|
-|           E .o..|
-|               oo|
+|.E ...oo o o.    |
+|o.o.o   . =      |
+|=..+     o .     |
+|o=o      .o +    |
+|*...    S .= =   |
+|=o .   . .. O    |
+|...     .  . *   |
+|.o .   . . .o.+  |
+|. o     ooo.+o . |
 +----[SHA256]-----+
 ```
 
@@ -199,9 +261,30 @@ Copy the RSA Security to .SSH Folder
 
 > ssh-copy-id -i hduser@[computername]
 
-where [computername] is the name you chose for your machine (without [ ] - it is name that appears after the @ sign)
+where [computername] is the name you chose for your machine (without [ ] - it is name that appears after the @ sign).  Name chosen for this tutorial was HadoopNode.
+
+You will get a warning that the autenticy of the host cannot be established and whether you want to continue.  Type "yes" and press enter.
+
+```
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/hduser/.ssh/id_rsa.pub"
+The authenticity of host 'hadoopnode (127.0.1.1)' can't be established.
+ECDSA key fingerprint is SHA256:1X9eQmEqHzjzJTrxfsfilSXh6zfuDdGjVCzJ5BPG+TI.
+Are you sure you want to continue connecting (yes/no)? yes 
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+hduser@hadoopnode's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'hduser@HadoopNode'"
+and check to make sure that only the key(s) you wanted were added.
+```
+
 
 We basically have added hduser as a user which can log remotely through SSH
+
+
+
 
 Now try to ssh to your computer
 
