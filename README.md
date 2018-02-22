@@ -539,4 +539,4 @@ Make sure there is no ERRORS during the formatting process.  If there is any, ca
 We will do a final reboot to have all the changes take effect.
 > sudo reboot
 
-## We have now installed and formatted our Hadoop cluster.  Please move on to the tutorial Working with Hadoop to test your setup.
+## We have now installed and formatted our Hadoop cluster.  Please move on to the tutorial Working with Hadoop to test your setup .
