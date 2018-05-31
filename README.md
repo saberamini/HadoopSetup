@@ -416,7 +416,7 @@ Add the following lines to the configuration section of the core-site.xml file
  <configuration>  
   <property>  
     <name>hadoop.tmp.dir</name>
-    <value>/home/$(user.name)/hadoop_data/hdfs/tmp/</value>
+    <value>/home/${user.name}/hadoop_data/hdfs/tmp/</value>
     <description> A base for other temporary directories. </description>
   </property>
   <property>  
