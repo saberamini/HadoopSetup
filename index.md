@@ -1,2 +1,2 @@
 Hello world
-![GitHub Logo](/Variety-in-Big-Data.jpg)
+![Big Data Graphic](/Variety-in-Big-Data.jpg)
